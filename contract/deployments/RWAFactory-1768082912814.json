@@ -1,0 +1,9 @@
+{
+  "contractName": "RWAFactory",
+  "address": "0x7d7aF5715e5671e0E3126b2428Dc2629bD9061e3",
+  "deployer": "0xdAF0182De86F904918Db8d07c7340A1EfcDF8244",
+  "owner": "0xdAF0182De86F904918Db8d07c7340A1EfcDF8244",
+  "network": "mantleTestnet",
+  "chainId": "5003",
+  "deployedAt": "2026-01-10T22:08:32.814Z"
+}
