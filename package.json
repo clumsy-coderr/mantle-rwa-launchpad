@@ -1,0 +1,42 @@
+{
+  "name": "avax-402",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "build:sdk": "cd sdk && npm run build"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@metamask/sdk": "^0.33.1",
+    "@rainbow-me/rainbowkit": "^2.2.10",
+    "@supabase/supabase-js": "^2.86.0",
+    "@tanstack/react-query": "^5.90.12",
+    "@wagmi/connectors": "^7.0.2",
+    "@wagmi/core": "^3.0.0",
+    "@walletconnect/ethereum-provider": "^2.21.10",
+    "axios": "^1.13.2",
+    "lucide-react": "^0.555.0",
+    "next": "16.0.10",
+    "pinata": "^2.5.2",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
+    "react-markdown": "^10.1.0",
+    "recharts": "^3.6.0",
+    "viem": "^2.41.2",
+    "wagmi": "^2.19.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.7",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
