@@ -1,0 +1,68 @@
+[
+  {
+    "url": "/",
+    "hierarchy": {
+      "lvl0": "Getting started",
+      "lvl1": "quick-start\" description=\"Step-by-step guides to setting up your system and installing the library.\" /%}"
+    },
+    "content": "{% quick-link title=\"Architecture guide\" icon=\"presets\" href=\"/\" description=\"Learn how the internals work and contribute.\" /%}  {% quick-link title=\"Widget\" icon=\"plugins\" href=\"/\" description=\"Integrate the checkout widget into your website without programming it from scratch.\" /%}  {% quick-link title=\"API reference\" icon=\"theming\" href=\"/\" description=\"See the entiere API reference.\" /%}  {% /quick-links %}  ---",
+    "type": "lvl1"
+  },
+  {
+    "url": "/",
+    "hierarchy": { "lvl0": "Getting started", "lvl1": "Quick start" },
+    "content": "Do you want to start right away? Then install RWA SDK with a command line.",
+    "type": "lvl1"
+  },
+  {
+    "url": "/",
+    "hierarchy": {
+      "lvl0": "Getting started",
+      "lvl1": "Installing dependencies"
+    },
+    "content": "The SDK is written in **TypeScript** and can be imported into React, Vue and Angular applications. The SDK will be also in other languages such as **Go** and **Python** available.  ```typescript npm install rwa-tokenized-sdk ```  After the library is installed just importing it to you (decentralized) application.",
+    "type": "lvl1"
+  },
+  {
+    "url": "/",
+    "hierarchy": { "lvl0": "Getting started", "lvl1": "Importing the library" },
+    "content": "```js // App.tsx import { createRWAClient } from 'rwa-tokenized-sdk' ```  {% callout title=\"You should know!\" %} We will start with creating your own RWA property. Each property is tokenized as ERC1155 tokens and the metadata is saved on IPFS.  There are two ways to create a property:  a) Using the library directly and calling the function `rwa.launchProperty()` within your implementation.  b) Or you can use the RWA launchpad interface if you want to skip an own implementation. The result is that you get a `propertyAddress` which is essential for the RWA Property.  {% /callout %}  ---",
+    "type": "lvl1"
+  },
+  {
+    "url": "/",
+    "hierarchy": {
+      "lvl0": "Getting started",
+      "lvl1": "Join the Discord Dev Channel"
+    },
+    "content": "If you need help then write us at [Discord](https://discord.com/invite/5mwebaUMpk)",
+    "type": "lvl1"
+  },
+  {
+    "url": "/docs/create-crypto-payment",
+    "hierarchy": { "lvl0": "Create Crypto Payment", "lvl1": "Init" },
+    "content": "Call the `launchProperty()` function to create a tokenized property. In the background an own ERC1155 contract is created for the property",
+    "type": "lvl1"
+  },
+  {
+    "url": "/docs/create-crypto-payment",
+    "hierarchy": { "lvl0": "Create Crypto Payment", "lvl1": "Example Code" },
+    "content": "In the first step you need to import the RWA SDK into your JavaScript/TypeScript project.  ```js import { createRWAClient } from 'rwa-tokenized-sdk' ```  **Interface**  ```js export interface LaunchPropertyParams {   assetName: string;   assetType: string;   description: string;   isOwner: boolean;   approximatedValue: bigint | string;   totalSupply: bigint | string;   propertyAddress: string;   squareMeters: bigint | string;   uri: string; } ```  **Function**  ```js rwa.launchProperty(params, signer) ```  **Params**  | Name   | Type | Description                                     | Result  | | ------ | ---- | ----------------------------------------------- | ------- | | params | LaunchPropertyParams  | Property launch parameters | LaunchPropertyResult | | signer | any  | Sending transactions a signer need to be passed | - |",
+    "type": "lvl1"
+  },
+  {
+    "url": "/docs/create-crypto-payment",
+    "hierarchy": { "lvl0": "Create Crypto Payment", "lvl1": "Example Code" },
+    "content": "```js try {  const result = await rwa.launchProperty({     assetName: 'Downtown Office Building',     assetType: 'Real Estate',     description: 'Premium office building',     isOwner: true,     approximatedValue: BigInt('1000000000000000000000'),     totalSupply: BigInt('1000000'),     propertyAddress: '123 Main St',     squareMeters: BigInt('500'),     uri: 'ipfs://Qm...'   }, signer);   console.log('Property launched:', result.propertyAddress); } catch(e: any) {   console.log(e); } ```  ---",
+    "type": "lvl1"
+  },
+  {
+    "url": "/docs/create-crypto-payment",
+    "hierarchy": {
+      "lvl0": "Create Crypto Payment",
+      "lvl1": "Using the Wizard creating the payment system"
+    },
+    "content": "You are also able to use the RWA launchpad interface to create properties [link](https://rwa-sdk.com/rwa-launch)",
+    "type": "lvl1"
+  }
+]

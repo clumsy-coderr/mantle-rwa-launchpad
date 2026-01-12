@@ -1,0 +1,21 @@
+@import 'tailwindcss/base';
+@import './fonts.css';
+@import './docsearch.css';
+@import './prism.css';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  /* Add scroll margin for anchor links to account for sticky header */
+  h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: 100px;
+  }
+
+  [id] {
+    scroll-margin-top: 100px;
+  }
+}

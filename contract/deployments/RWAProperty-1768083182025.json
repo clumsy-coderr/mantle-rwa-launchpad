@@ -1,0 +1,22 @@
+{
+  "propertyAddress": "0x1Ba7053B3aCe130e724fe0Da60bD72a2e450F9A4",
+  "factoryAddress": "0x7d7aF5715e5671e0E3126b2428Dc2629bD9061e3",
+  "issuer": "0xdAF0182De86F904918Db8d07c7340A1EfcDF8244",
+  "params": {
+    "assetName": "Real Estate Property",
+    "assetType": "Real Estate",
+    "description": "A tokenized real estate property",
+    "isOwner": true,
+    "approximatedValueUSD": "1000000.0",
+    "totalSupply": "1000000",
+    "propertyAddress": "123 Main St, City, Country",
+    "squareMeters": "10000",
+    "uri": "https://gateway.pinata.cloud/ipfs/bafkreihm7v5io3okn6cfwfds265jvv3euyokcoeesf42cap7owpspovvu4"
+  },
+  "transactionHash": "0x0b9dd285d7c137c4654cb8cb02da031ee2156df09c5f2d8531c516a705e1a1df",
+  "blockNumber": "33269252",
+  "gasUsed": "4884118669",
+  "network": "mantleTestnet",
+  "chainId": "5003",
+  "launchedAt": "2026-01-10T22:13:02.025Z"
+}

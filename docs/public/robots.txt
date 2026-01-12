@@ -1,0 +1,11 @@
+# RWA SDK Documentation
+# https://rwa-sdk.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://rwa-sdk.com/sitemap.xml
+
+# Disallow admin or private routes (if any)
+Disallow: /api/

@@ -1,0 +1,81 @@
+{
+  "name": "rwa-tokenized-sdk",
+  "version": "0.1.0",
+  "description": "Complete SDK for RWA (Real World Assets) tokenization, payments, subscriptions, and access control on Mantle Network",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "mantle",
+    "mantle-network",
+    "web3",
+    "payments",
+    "subscriptions",
+    "commerce",
+    "blockchain",
+    "crypto",
+    "synqpay",
+    "rwa",
+    "real-world-assets",
+    "tokenization",
+    "launchpad",
+    "erc1155",
+    "nft",
+    "defi",
+    "ethereum",
+    "evm"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kali-Decoder/rwa-tokeniized.git",
+    "directory": "sdk"
+  },
+  "homepage": "https://github.com/Kali-Decoder/rwa-tokeniized/blob/main/sdk/README.md",
+  "bugs": {
+    "url": "https://github.com/Kali-Decoder/rwa-tokeniized/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-markdown": "^10.0.0",
+    "lucide-react": "^0.500.0",
+    "ethers": "^6.0.0 || ^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-markdown": {
+      "optional": true
+    },
+    "lucide-react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "typescript": "^5.0.0"
+  }
+}
+
