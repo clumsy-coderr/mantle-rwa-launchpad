@@ -3,8 +3,6 @@ title: Examples
 description: Complete code examples for common use cases
 ---
 
-# Examples
-
 Complete, working examples for common use cases with the RWA Tokenized SDK.
 
 ## Example 1: Launch and Manage a Property

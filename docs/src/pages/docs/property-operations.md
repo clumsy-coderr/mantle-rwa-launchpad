@@ -3,8 +3,6 @@ title: Property Operations
 description: Interact with tokenized properties and manage ERC1155 tokens
 ---
 
-# Property Operations
-
 Each tokenized property is an ERC1155 contract. Use these methods to interact with properties, manage tokens, handle approvals, and control ownership.
 
 ## Get Property Details

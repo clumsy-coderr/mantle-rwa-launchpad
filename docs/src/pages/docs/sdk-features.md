@@ -3,8 +3,6 @@ title: SDK Features
 description: Complete overview of all SDK features and functionality
 ---
 
-# SDK Features
-
 **Integrated in minutes, not weeks.**
 
 Our SDK provides a complete interface to interact with RWA Factory and Property smart contracts. Launch properties, transfer tokens, manage approvals, and query data with simple TypeScript functions.

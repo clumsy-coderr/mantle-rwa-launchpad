@@ -3,8 +3,6 @@ title: TransferSingle Event
 description: Listen to TransferSingle events for token transfers
 ---
 
-# TransferSingle Event
-
 The `TransferSingle` event is emitted by RWAProperty contracts (ERC1155) when a single token type is transferred.
 
 ## Event Signature

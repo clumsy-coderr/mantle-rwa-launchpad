@@ -3,8 +3,6 @@ title: Factory Operations
 description: Launch and manage RWA properties through the factory
 ---
 
-# Factory Operations
-
 The RWA Factory is the central contract that manages all tokenized properties. Use these methods to launch new properties, query existing ones, and manage factory ownership.
 
 ## Creating a Client

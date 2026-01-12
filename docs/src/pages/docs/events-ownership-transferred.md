@@ -3,8 +3,6 @@ title: OwnershipTransferred Event
 description: Listen to OwnershipTransferred events for ownership changes
 ---
 
-# OwnershipTransferred Event
-
 The `OwnershipTransferred` event is emitted by both RWAFactory and RWAProperty contracts (inherited from Ownable) when ownership is transferred or renounced.
 
 ## Event Signature

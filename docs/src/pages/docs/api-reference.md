@@ -3,8 +3,6 @@ title: API Reference
 description: Complete API reference for all SDK methods
 ---
 
-# API Reference
-
 Complete reference for all methods and types in the RWA Tokenized SDK.
 
 ## Creating a Client

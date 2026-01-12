@@ -3,8 +3,6 @@ title: ApprovalForAll Event
 description: Listen to ApprovalForAll events for operator approvals
 ---
 
-# ApprovalForAll Event
-
 The `ApprovalForAll` event is emitted by RWAProperty contracts (ERC1155) when an operator is approved or revoked for all tokens owned by an account.
 
 ## Event Signature

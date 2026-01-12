@@ -3,8 +3,6 @@ title: TransferBatch Event
 description: Listen to TransferBatch events for batch token transfers
 ---
 
-# TransferBatch Event
-
 The `TransferBatch` event is emitted by RWAProperty contracts (ERC1155) when multiple token types are transferred in a single batch operation.
 
 ## Event Signature

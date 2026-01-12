@@ -3,8 +3,6 @@ title: Quick Start
 description: Get started with your first tokenized property in minutes
 ---
 
-# Quick Start
-
 This guide will walk you through launching your first tokenized property using the RWA Tokenized SDK.
 
 ## Step 1: Install the SDK

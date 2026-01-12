@@ -3,8 +3,6 @@ title: PropertyLaunched Event
 description: Listen to PropertyLaunched events when new properties are launched
 ---
 
-# PropertyLaunched Event
-
 The `PropertyLaunched` event is emitted by the RWAFactory contract when a new property is successfully launched.
 
 ## Event Signature

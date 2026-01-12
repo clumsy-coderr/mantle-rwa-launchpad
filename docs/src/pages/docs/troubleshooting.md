@@ -3,8 +3,6 @@ title: Troubleshooting
 description: Common issues and solutions
 ---
 
-# Troubleshooting
-
 Common issues you might encounter and how to resolve them.
 
 ## Common Issues

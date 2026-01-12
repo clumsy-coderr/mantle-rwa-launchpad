@@ -48,15 +48,58 @@ export function ThemeSelector(props) {
   let [selectedTheme, setSelectedTheme] = useState()
 
   useEffect(() => {
+    // Initialize theme on mount
+    const savedTheme = localStorage.getItem('theme')
+    const initialTheme = themes.find(theme => theme.value === savedTheme) || themes.find(theme => theme.value === 'system')
+
+    if (initialTheme) {
+      setSelectedTheme(initialTheme)
+      document.documentElement.setAttribute('data-theme', initialTheme.value)
+
+      // Apply initial theme
+      if (initialTheme.value === 'dark') {
+        document.documentElement.classList.add('dark')
+      } else if (initialTheme.value === 'light') {
+        document.documentElement.classList.remove('dark')
+      } else if (initialTheme.value === 'system') {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      }
+    }
+  }, [])
+
+  useEffect(() => {
     if (selectedTheme) {
+      // Save to localStorage
+      localStorage.setItem('theme', selectedTheme.value)
+
       document.documentElement.setAttribute('data-theme', selectedTheme.value)
-    } else {
-      setSelectedTheme(
-        themes.find(
-          (theme) =>
-            theme.value === document.documentElement.getAttribute('data-theme')
-        )
-      )
+
+      // Handle class-based theming for Tailwind
+      if (selectedTheme.value === 'dark') {
+        document.documentElement.classList.add('dark')
+      } else if (selectedTheme.value === 'light') {
+        document.documentElement.classList.remove('dark')
+      } else if (selectedTheme.value === 'system') {
+        // For system theme, check system preference
+        const updateSystemTheme = () => {
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark')
+          } else {
+            document.documentElement.classList.remove('dark')
+          }
+        }
+        updateSystemTheme()
+
+        // Listen for system theme changes
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+        mediaQuery.addEventListener('change', updateSystemTheme)
+
+        return () => mediaQuery.removeEventListener('change', updateSystemTheme)
+      }
     }
   }, [selectedTheme])
 
@@ -69,15 +112,15 @@ export function ThemeSelector(props) {
     >
       <Listbox.Label className="sr-only">Theme</Listbox.Label>
       <Listbox.Button
-        className="flex h-6 w-6 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5"
+        className="flex h-6 w-6 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-background dark:ring-inset dark:ring-foreground/5"
         aria-label={selectedTheme?.name}
       >
-        <LightIcon className="hidden h-4 w-4 fill-sky-400 [[data-theme=light]_&]:block" />
-        <DarkIcon className="hidden h-4 w-4 fill-sky-400 [[data-theme=dark]_&]:block" />
+        <LightIcon className="hidden h-4 w-4 fill-rwa-green [[data-theme=light]_&]:block" />
+        <DarkIcon className="hidden h-4 w-4 fill-rwa-green [[data-theme=dark]_&]:block" />
         <LightIcon className="hidden h-4 w-4 fill-slate-400 [:not(.dark)[data-theme=system]_&]:block" />
         <DarkIcon className="hidden h-4 w-4 fill-slate-400 [.dark[data-theme=system]_&]:block" />
       </Listbox.Button>
-      <Listbox.Options className="absolute top-full left-1/2 mt-3 w-36 -translate-x-1/2 space-y-1 rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5">
+      <Listbox.Options className="absolute top-full left-1/2 mt-3 w-36 -translate-x-1/2 space-y-1 rounded-xl bg-background p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-background dark:ring-foreground/5">
         {themes.map((theme) => (
           <Listbox.Option
             key={theme.value}
@@ -86,22 +129,22 @@ export function ThemeSelector(props) {
               clsx(
                 'flex cursor-pointer select-none items-center rounded-[0.625rem] p-1',
                 {
-                  'text-sky-500': selected,
-                  'text-slate-900 dark:text-white': active && !selected,
-                  'text-slate-700 dark:text-slate-400': !active && !selected,
-                  'bg-slate-100 dark:bg-slate-900/40': active,
+                  'text-rwa-green': selected,
+                  'text-foreground': active && !selected,
+                  'text-foreground/70': !active && !selected,
+                  'bg-foreground/10': active,
                 }
               )
             }
           >
             {({ selected }) => (
               <>
-                <div className="rounded-md bg-white p-1 shadow ring-1 ring-slate-900/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5">
+                <div className="rounded-md bg-background p-1 shadow ring-1 ring-foreground/5 dark:bg-background dark:ring-inset dark:ring-foreground/5">
                   <theme.icon
                     className={clsx(
                       'h-4 w-4',
                       selected
-                        ? 'fill-sky-400 dark:fill-sky-400'
+                        ? 'fill-rwa-green dark:fill-rwa-green'
                         : 'fill-slate-400'
                     )}
                   />

@@ -3,8 +3,6 @@ title: Installation
 description: Install and set up the RWA Tokenized SDK in your project
 ---
 
-# Installation
-
 Get started by installing the RWA Tokenized SDK in your project.
 
 ## Prerequisites

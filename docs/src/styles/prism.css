@@ -8,7 +8,7 @@ pre[class*='language-'] {
 .token.selector .class,
 .token.selector.class,
 .token.function {
-  color: theme('colors.pink.400');
+  color: theme('colors.rwa-green');
 }
 
 .token.attr-name,
@@ -16,18 +16,18 @@ pre[class*='language-'] {
 .token.rule,
 .token.pseudo-class,
 .token.important {
-  color: theme('colors.slate.300');
+  color: theme('colors.lime.300');
 }
 
 .token.module {
-  color: theme('colors.pink.400');
+  color: theme('colors.rwa-green');
 }
 
 .token.attr-value,
 .token.class,
 .token.string,
 .token.property {
-  color: theme('colors.sky.300');
+  color: theme('colors.lime.200');
 }
 
 .token.punctuation,
@@ -37,7 +37,7 @@ pre[class*='language-'] {
 
 .token.unit,
 .language-css .token.function {
-  color: theme('colors.teal.200');
+  color: theme('colors.emerald.300');
 }
 
 .token.comment,

@@ -21,9 +21,17 @@ module.exports = {
       '9xl': ['8rem', { lineHeight: '1' }],
     },
     extend: {
+      colors: {
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        'rwa-green': '#C3FF32',
+        'rwa-dark': '#0A0A0C',
+        'rwa-darker': '#0E0E11',
+      },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Poppins', 'Inter', ...defaultTheme.fontFamily.sans],
         display: ['Lexend', ...defaultTheme.fontFamily.sans],
+        mono: ['Geist Mono', ...defaultTheme.fontFamily.mono],
       },
       maxWidth: {
         '8xl': '88rem',

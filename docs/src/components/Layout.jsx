@@ -88,9 +88,9 @@ function Header({ navigation }) {
   return (
     <header
       className={clsx(
-        'sticky top-0 z-50 flex flex-wrap items-center justify-between bg-white px-4 py-5 shadow-md shadow-slate-900/5 transition duration-500 dark:shadow-none sm:px-6 lg:px-8',
+        'sticky top-0 z-50 flex flex-wrap items-center justify-between bg-background px-4 py-5 shadow-md shadow-black/5 transition duration-500 dark:shadow-none sm:px-6 lg:px-8',
         isScrolled
-          ? 'dark:bg-slate-900/95 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-slate-900/75'
+          ? 'dark:bg-background/95 dark:backdrop-blur dark:[@supports(backdrop-filter:blur(0))]:bg-background/75'
           : 'dark:bg-transparent'
       )}
     >
@@ -114,7 +114,7 @@ function Header({ navigation }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <GitHubIcon className="h-6 w-6 fill-slate-400 group-hover:fill-slate-500 dark:group-hover:fill-slate-300" />
+          <GitHubIcon className="h-6 w-6 fill-foreground/60 group-hover:fill-foreground dark:group-hover:fill-foreground" />
         </Link>}
       </div>
     </header>
@@ -194,10 +194,10 @@ export function Layout({ children, title, tableOfContents }) {
 
       <div className="relative mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12">
         <div className="hidden lg:relative lg:block lg:flex-none">
-          <div className="absolute inset-y-0 right-0 w-[50vw] bg-slate-50 dark:hidden" />
+          <div className="absolute inset-y-0 right-0 w-[50vw] bg-background dark:hidden" />
           <div className="sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto py-16 pl-0.5">
-            <div className="absolute bottom-0 right-0 top-16 hidden h-12 w-px bg-gradient-to-t from-slate-800 dark:block" />
-            <div className="absolute bottom-0 right-0 top-28 hidden w-px bg-slate-800 dark:block" />
+            <div className="absolute bottom-0 right-0 top-16 hidden h-12 w-px bg-gradient-to-t from-foreground dark:block" />
+            <div className="absolute bottom-0 right-0 top-28 hidden w-px bg-foreground dark:block" />
             <Navigation
               navigation={navigation}
               className="w-64 pr-8 xl:w-72 xl:pr-16"
@@ -209,12 +209,12 @@ export function Layout({ children, title, tableOfContents }) {
             {(title || section) && (
               <header className="mb-9 space-y-1">
                 {section && (
-                  <p className="font-display text-sm font-medium text-sky-500">
+                  <p className="font-display text-sm font-medium text-rwa-green">
                     {section.title}
                   </p>
                 )}
                 {title && (
-                  <h1 className="font-display text-3xl tracking-tight text-slate-900 dark:text-white">
+                  <h1 className="font-display text-3xl tracking-tight text-foreground">
                     {title}
                   </h1>
                 )}
@@ -222,16 +222,16 @@ export function Layout({ children, title, tableOfContents }) {
             )}
             <Prose>{children}</Prose>
           </article>
-          <dl className="mt-12 flex border-t border-slate-200 pt-6 dark:border-slate-800">
+          <dl className="mt-12 flex border-t border-foreground/20 pt-6 dark:border-foreground/20">
             {previousPage && (
               <div>
-                <dt className="font-display text-sm font-medium text-slate-900 dark:text-white">
+                <dt className="font-display text-sm font-medium text-foreground">
                   Previous
                 </dt>
                 <dd className="mt-1">
                   <Link
                     href={previousPage.href}
-                    className="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+                    className="text-base font-semibold text-foreground/60 hover:text-foreground dark:text-foreground/70 dark:hover:text-foreground"
                   >
                     <span aria-hidden="true">&larr;</span> {previousPage.title}
                   </Link>
@@ -240,13 +240,13 @@ export function Layout({ children, title, tableOfContents }) {
             )}
             {nextPage && (
               <div className="ml-auto text-right">
-                <dt className="font-display text-sm font-medium text-slate-900 dark:text-white">
+                <dt className="font-display text-sm font-medium text-foreground">
                   Next
                 </dt>
                 <dd className="mt-1">
                   <Link
                     href={nextPage.href}
-                    className="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+                    className="text-base font-semibold text-foreground/60 hover:text-foreground dark:text-foreground/70 dark:hover:text-foreground"
                   >
                     {nextPage.title} <span aria-hidden="true">&rarr;</span>
                   </Link>
@@ -261,7 +261,7 @@ export function Layout({ children, title, tableOfContents }) {
               <>
                 <h2
                   id="on-this-page-title"
-                  className="font-display text-sm font-medium text-slate-900 dark:text-white"
+                  className="font-display text-sm font-medium text-foreground"
                 >
                   On this page
                 </h2>
@@ -273,8 +273,8 @@ export function Layout({ children, title, tableOfContents }) {
                           href={`#${section.id}`}
                           className={clsx(
                             isActive(section)
-                              ? 'text-sky-500'
-                              : 'font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'
+                              ? 'text-rwa-green'
+                              : 'font-normal text-foreground/60 hover:text-foreground dark:text-foreground/70 dark:hover:text-foreground'
                           )}
                         >
                           {section.title}
@@ -283,7 +283,7 @@ export function Layout({ children, title, tableOfContents }) {
                       {section.children.length > 0 && (
                         <ol
                           role="list"
-                          className="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400"
+                          className="mt-2 space-y-3 pl-5 text-foreground/60 dark:text-foreground/70"
                         >
                           {section.children.map((subSection) => (
                             <li key={subSection.id}>
@@ -291,8 +291,8 @@ export function Layout({ children, title, tableOfContents }) {
                                 href={`#${subSection.id}`}
                                 className={
                                   isActive(subSection)
-                                    ? 'text-sky-500'
-                                    : 'hover:text-slate-600 dark:hover:text-slate-300'
+                                    ? 'text-rwa-green'
+                                    : 'hover:text-foreground dark:hover:text-foreground'
                                 }
                               >
                                 {subSection.title}
