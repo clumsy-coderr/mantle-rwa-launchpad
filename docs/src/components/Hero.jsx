@@ -32,7 +32,7 @@ function TrafficLightsIcon(props) {
 
 export function Hero() {
   return (
-    <div className="overflow-hidden bg-background dark:-mb-32 dark:mt-[-4.5rem] dark:pb-32 dark:pt-[4.5rem] dark:lg:mt-[-4.75rem] dark:lg:pt-[4.75rem]">
+    <div className="overflow-hidden bg-background dark:-mb-32 dark:-mt-18 dark:pb-32 dark:pt-18 dark:lg:-mt-19 dark:lg:pt-19">
       <div className="py-16 sm:px-2 lg:relative lg:px-0 lg:py-20">
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 lg:max-w-8xl lg:grid-cols-2 lg:px-8 xl:gap-x-16 xl:px-12">
           <div className="relative z-10 md:text-center lg:text-left">
@@ -46,7 +46,7 @@ export function Hero() {
               priority
             />
             <div className="relative">
-              <p className="inline bg-gradient-to-r from-rwa-green/80 via-rwa-green to-rwa-green/80 bg-clip-text font-display text-5xl tracking-tight text-transparent">
+              <p className="inline bg-linear-to-r from-rwa-green/80 via-rwa-green to-rwa-green/80 bg-clip-text font-display text-5xl tracking-tight text-transparent">
                 RWA SDK
               </p>
 
@@ -95,14 +95,14 @@ export function Hero() {
                     <path
                       d="M3 16c0 7.18 5.82 13 13 13s13-5.82 13-13S23.18 3 16 3 3 8.82 3 16Z"
                       fillOpacity="0.5"
-                      className="fill-[var(--icon-background)] stroke-[color:var(--icon-foreground)]"
+                      className="fill-(--icon-background) stroke-(--icon-foreground)"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     ></path>
                     <path
                       d="m15.408 16.509-1.04-5.543a1.66 1.66 0 1 1 3.263 0l-1.039 5.543a.602.602 0 0 1-1.184 0Z"
-                      className="fill-[var(--icon-foreground)] stroke-[color:var(--icon-foreground)]"
+                      className="fill-(--icon-foreground) stroke-(--icon-foreground)"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -111,7 +111,7 @@ export function Hero() {
                       d="M16 23a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
                       fillOpacity="0.5"
                       stroke="currentColor"
-                      className="fill-[var(--icon-background)] stroke-[color:var(--icon-foreground)]"
+                      className="fill-(--icon-background) stroke-(--icon-foreground)"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -144,7 +144,7 @@ export function Hero() {
             </div>
           </div>
           <div className="relative lg:static xl:pl-10">
-            <div className="absolute inset-x-[-50vw] -bottom-48 -top-32 [mask-image:linear-gradient(transparent,white,white)] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:-bottom-32 lg:-top-32 lg:left-[calc(50%+14rem)] lg:right-0 lg:[mask-image:none] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
+            <div className="absolute inset-x-[-50vw] -bottom-48 -top-32 mask-[linear-gradient(transparent,white,white)] dark:mask-[linear-gradient(transparent,white,transparent)] lg:-bottom-32 lg:-top-32 lg:left-[calc(50%+14rem)] lg:right-0 lg:mask-none lg:dark:mask-[linear-gradient(white,white,transparent)]">
               <HeroBackground className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]" />
             </div>
             <div className="relative">
@@ -166,11 +166,11 @@ export function Hero() {
                 unoptimized
                 priority
               />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-rwa-green/20 via-rwa-green/10 to-rwa-green/20 opacity-10 blur-lg" />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-rwa-green/20 via-rwa-green/10 to-rwa-green/20 opacity-10" />
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-tr from-rwa-green/20 via-rwa-green/10 to-rwa-green/20 opacity-10 blur-lg" />
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-tr from-rwa-green/20 via-rwa-green/10 to-rwa-green/20 opacity-10" />
               <div className="relative rounded-2xl bg-[#0A101F]/80 ring-1 ring-white/10 backdrop-blur">
-                <div className="absolute -top-px left-20 right-11 h-px bg-gradient-to-r from-rwa-green/0 via-rwa-green/70 to-rwa-green/0" />
-                <div className="absolute -bottom-px left-11 right-20 h-px bg-gradient-to-r from-rwa-green/0 via-rwa-green to-rwa-green/0" />
+                <div className="absolute -top-px left-20 right-11 h-px bg-lin-to-r from-rwa-green/0 via-rwa-green/70 to-rwa-green/0" />
+                <div className="absolute -bottom-px left-11 right-20 h-px bg-lin-to-r from-rwa-green/0 via-rwa-green to-rwa-green/0" />
                 <div className="pl-4 pt-4">
                   <TrafficLightsIcon className="h-2.5 w-auto stroke-slate-500/30" />
                   <div className="mt-4 flex space-x-2 text-xs">

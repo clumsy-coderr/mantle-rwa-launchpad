@@ -115,8 +115,8 @@ export function ThemeSelector(props) {
         className="flex h-6 w-6 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-background dark:ring-inset dark:ring-foreground/5"
         aria-label={selectedTheme?.name}
       >
-        <LightIcon className="hidden h-4 w-4 fill-rwa-green [[data-theme=light]_&]:block" />
-        <DarkIcon className="hidden h-4 w-4 fill-rwa-green [[data-theme=dark]_&]:block" />
+        <LightIcon className="hidden h-4 w-4 fill-rwa-green in-data-[theme=light]:block" />
+        <DarkIcon className="hidden h-4 w-4 fill-rwa-green in-data-[theme=dark]:block" />
         <LightIcon className="hidden h-4 w-4 fill-slate-400 [:not(.dark)[data-theme=system]_&]:block" />
         <DarkIcon className="hidden h-4 w-4 fill-slate-400 [.dark[data-theme=system]_&]:block" />
       </Listbox.Button>
