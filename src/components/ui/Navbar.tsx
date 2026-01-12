@@ -15,7 +15,7 @@ interface NavbarProps {
 export function Navbar({
   ctaText = "Launch Asset",
   ctaHref = "/rwa-launch",
-  githubUrl = "https://github.com"
+  githubUrl = "https://github.com/clumsy-coderr/mantle-rwa-launchpad"
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)

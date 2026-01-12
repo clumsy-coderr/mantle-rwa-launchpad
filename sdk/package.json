@@ -1,6 +1,6 @@
 {
   "name": "rwa-tokenized-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Complete SDK for RWA (Real World Assets) tokenization, payments, subscriptions, and access control on Mantle Network",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -45,22 +45,21 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kali-Decoder/rwa-tokeniized.git",
+    "url": "https://github.com/clumsy-coderr/mantle-rwa-launchpad.git",
     "directory": "sdk"
   },
-  "homepage": "https://github.com/Kali-Decoder/rwa-tokeniized/blob/main/sdk/README.md",
+  "homepage": "https://github.com/clumsy-coderr/mantle-rwa-launchpad/blob/main/sdk/README.md",
   "bugs": {
-    "url": "https://github.com/Kali-Decoder/rwa-tokeniized/issues"
+    "url": "https://github.com/clumsy-coderr/mantle-rwa-launchpad/issues"
   },
   "engines": {
     "node": ">=18.0.0"
   },
-  "dependencies": {},
   "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-markdown": "^10.0.0",
+    "ethers": "^6.0.0 || ^5.0.0",
     "lucide-react": "^0.500.0",
-    "ethers": "^6.0.0 || ^5.0.0"
+    "react": "^18.0.0 || ^19.0.0",
+    "react-markdown": "^10.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -75,7 +74,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.0.0",
+    "ethers": "^6.16.0",
     "typescript": "^5.0.0"
   }
 }
-
