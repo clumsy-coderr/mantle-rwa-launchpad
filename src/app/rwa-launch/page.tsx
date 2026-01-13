@@ -628,14 +628,32 @@ export default function LaunchAssetPage() {
                 {isConfirmed && receipt && (
                   <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4 mt-6">
                     <p className="text-green-400 font-semibold text-sm mb-2">✅ Property Launched Successfully!</p>
-                    <p className="text-white text-xs break-all font-mono bg-black/30 p-2 rounded">
-                      Transaction Hash: {receipt.transactionHash}
-                    </p>
-                    {propertyAddress && (
-                      <p className="text-white text-xs break-all font-mono bg-black/30 p-2 rounded mt-2">
-                        Property Address: {propertyAddress}
+                    <div className="space-y-2">
+                      <p className="text-white text-xs">
+                        Transaction Hash:
+                        <a
+                          href={`https://sepolia.mantlescan.xyz/tx/${receipt.transactionHash}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#C3FF32] hover:text-[#C3FF32]/80 underline ml-2 break-all font-mono bg-black/30 p-1 rounded text-xs"
+                        >
+                          {receipt.transactionHash}
+                        </a>
                       </p>
-                    )}
+                      {propertyAddress && (
+                        <p className="text-white text-xs">
+                          Property Address:
+                          <a
+                            href={`https://sepolia.mantlescan.xyz/address/${propertyAddress}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#C3FF32] hover:text-[#C3FF32]/80 underline ml-2 break-all font-mono bg-black/30 p-1 rounded text-xs"
+                          >
+                            {propertyAddress}
+                          </a>
+                        </p>
+                      )}
+                    </div>
                   </div>
                 )}
                 <button
