@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
+import React from 'react'
 import { Navbar } from '@/components/ui'
 import { 
   ArrowRight, 
@@ -83,7 +85,6 @@ export default function LaunchAssetPage() {
   const [isUploading, setIsUploading] = useState(false)
   const [uploadProgress, setUploadProgress] = useState('')
   const [metadataUri, setMetadataUri] = useState<string | null>(null)
-  const [propertyAddress, setPropertyAddress] = useState<string | null>(null)
   const [isAssetTypeOpen, setIsAssetTypeOpen] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -243,65 +244,59 @@ export default function LaunchAssetPage() {
     }
   }
 
-  // Handle transaction confirmation
-  useEffect(() => {
-    if (isConfirmed && receipt) {
-      setIsUploading(false)
-      setUploadProgress('Property launched successfully!')
-      
-      // Extract property address from PropertyLaunched event
-      let extractedPropertyAddress: string | null = null
-      try {
-        const eventAbi = factoryContractABI.find(
-          (item) => item.type === 'event' && item.name === 'PropertyLaunched'
-        )
-        
-        if (eventAbi && receipt.logs) {
-          for (const log of receipt.logs) {
-            try {
-              const decoded = decodeEventLog({
-                abi: [eventAbi],
-                data: log.data,
-                topics: log.topics,
-              })
-              
-              if (decoded.eventName === 'PropertyLaunched' && decoded.args) {
-                const args = decoded.args as unknown as { propertyContract: string }
-                if (args && typeof args === 'object' && 'propertyContract' in args) {
-                  extractedPropertyAddress = args.propertyContract
-                  break
-                }
+  // Derive state from hook values to avoid setState in effects
+  const isSuccess = isConfirmed && receipt
+  const displayProgress = isSuccess ? 'Property launched successfully!' : uploadProgress
+  const showUploading = isUploading && !isSuccess
+
+  // Extract property address from receipt when successful
+  const extractedPropertyAddress = React.useMemo(() => {
+    if (!isSuccess || !receipt) return null
+
+    try {
+      const eventAbi = factoryContractABI.find(
+        (item) => item.type === 'event' && item.name === 'PropertyLaunched'
+      )
+
+      if (eventAbi && receipt.logs) {
+        for (const log of receipt.logs) {
+          try {
+            const decoded = decodeEventLog({
+              abi: [eventAbi],
+              data: log.data,
+              topics: log.topics,
+            })
+
+            if (decoded.eventName === 'PropertyLaunched' && decoded.args) {
+              const args = decoded.args as unknown as { propertyContract: string }
+              if (args && typeof args === 'object' && 'propertyContract' in args) {
+                return args.propertyContract
               }
-            } catch (e) {
-              // Continue to next log
             }
+          } catch (e) {
+            // Continue to next log
           }
         }
-      } catch (error) {
-        console.error('Error parsing event logs:', error)
       }
-      
-      if (extractedPropertyAddress) {
-        setPropertyAddress(extractedPropertyAddress)
-      }
-      
+    } catch (error) {
+      console.error('Error parsing event logs:', error)
+    }
+
+    return null
+  }, [isSuccess, receipt])
+
+  // Show success toast when property is launched
+  React.useEffect(() => {
+    if (isSuccess && extractedPropertyAddress) {
       showSuccess('Property launched successfully on-chain!')
-      
       console.log("Transaction receipt:", receipt)
       console.log("Property Address:", extractedPropertyAddress)
       console.log("Metadata IPFS URL:", metadataUri)
     }
-  }, [isConfirmed, receipt, metadataUri, showSuccess])
+  }, [isSuccess, extractedPropertyAddress, showSuccess, receipt, metadataUri])
 
-  // Handle launch errors
-  useEffect(() => {
-    if (launchError) {
-      showError(launchError.message || 'Failed to launch property')
-      setErrors({ submit: launchError.message || 'Failed to launch property' })
-      setIsUploading(false)
-      setUploadProgress('')
-    }
-  }, [launchError, showError])
+  // Handle launch errors directly in component logic
+  const hasLaunchError = launchError && !isConfirmed
 
   return (
     <div className="bg-[#0A0A0C] min-h-screen text-white font-sans">
@@ -318,7 +313,7 @@ export default function LaunchAssetPage() {
             <h1 className="text-4xl md:text-5xl font-brand text-white mb-4 leading-tight">
                 RWA TOKENIZED
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C3FF32] via-[#e2ff8d] to-white">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#C3FF32] via-[#e2ff8d] to-white">
                   LAUNCHPAD
               </span>
             </h1>
@@ -612,9 +607,14 @@ export default function LaunchAssetPage() {
                     <p className="text-red-400 text-sm">{errors.submit}</p>
                   </div>
                 )}
-                {uploadProgress && (
+                {displayProgress && (
                   <div className="bg-[#C3FF32]/10 border border-[#C3FF32]/30 rounded-lg p-3 mt-6">
-                    <p className="text-[#C3FF32] text-sm">{uploadProgress}</p>
+                    <p className="text-[#C3FF32] text-sm">{displayProgress}</p>
+                  </div>
+                )}
+                {hasLaunchError && (
+                  <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 mt-6">
+                    <p className="text-red-400 text-sm">{launchError.message || 'Failed to launch property'}</p>
                   </div>
                 )}
                 {metadataUri && (
@@ -640,16 +640,16 @@ export default function LaunchAssetPage() {
                           {receipt.transactionHash}
                         </a>
                       </p>
-                      {propertyAddress && (
+                      {extractedPropertyAddress && (
                         <p className="text-white text-xs">
                           Property Address:
                           <a
-                            href={`https://sepolia.mantlescan.xyz/address/${propertyAddress}`}
+                            href={`https://sepolia.mantlescan.xyz/address/${extractedPropertyAddress}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-[#C3FF32] hover:text-[#C3FF32]/80 underline ml-2 break-all font-mono bg-black/30 p-1 rounded text-xs"
                           >
-                            {propertyAddress}
+                            {extractedPropertyAddress}
                           </a>
                         </p>
                       )}
@@ -658,10 +658,10 @@ export default function LaunchAssetPage() {
                 )}
                 <button
                   type="submit"
-                  disabled={isUploading || isLaunching || isConfirming}
+                  disabled={showUploading || isLaunching || isConfirming}
                   className="w-full bg-[#C3FF32] text-black px-8 py-4 rounded-lg font-bold text-sm tracking-wide hover:bg-[#b0e62e] transition-all transform hover:-translate-y-1 shadow-[0_0_25px_rgba(195,255,50,0.3)] flex items-center justify-center gap-2 group mt-8 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  {isUploading || isLaunching || isConfirming ? (
+                  {showUploading || isLaunching || isConfirming ? (
                     <>
                       <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
                       {isConfirming ? 'Confirming transaction...' : isLaunching ? 'Launching property...' : 'Uploading...'}
