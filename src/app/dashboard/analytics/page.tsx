@@ -202,7 +202,7 @@ export default function AnalyticsPage() {
                         <TrendingUp className="text-[#C3FF32]" size={20} />
               </div>
                       <p className="text-2xl font-bold text-white">
-                        {analyticsData ? (Number(analyticsData.totalValue) / 1e18).toFixed(2) : '0'} MNT
+                        {analyticsData ? (Number(analyticsData.totalValue) / 1e18).toFixed(2) : '0'} USD
                       </p>
             </div>
                     <div className="bg-[#050505] border border-white/5 rounded-xl p-6">
@@ -211,7 +211,7 @@ export default function AnalyticsPage() {
                         <TrendingUp className="text-[#C3FF32]" size={20} />
                 </div>
                       <p className="text-2xl font-bold text-[#C3FF32]">
-                        {analyticsData ? (Number(analyticsData.userTotalValue) / 1e18).toFixed(2) : '0'} MNT
+                        {analyticsData ? (Number(analyticsData.userTotalValue) / 1e18).toFixed(2) : '0'} USD
                       </p>
             </div>
           </div>
@@ -264,10 +264,10 @@ export default function AnalyticsPage() {
                               textAnchor="end"
                               height={80}
                             />
-                            <YAxis 
+                            <YAxis
                               stroke="#888"
                               tick={{ fill: '#888', fontSize: 12 }}
-                              label={{ value: 'MNT', angle: -90, position: 'insideLeft', fill: '#888' }}
+                              label={{ value: 'USD', angle: -90, position: 'insideLeft', fill: '#888' }}
                             />
                             <Tooltip 
                               contentStyle={{ 
@@ -276,7 +276,7 @@ export default function AnalyticsPage() {
                                 borderRadius: '8px',
                                 color: '#fff'
                               }}
-                              formatter={(value: number | undefined) => `${(value || 0).toFixed(2)} MNT`}
+                              formatter={(value: number | undefined) => `${(value || 0).toFixed(2)} USD`}
                             />
                             <Bar dataKey="value" fill="#C3FF32" radius={[8, 8, 0, 0]} />
                           </BarChart>
@@ -315,7 +315,7 @@ export default function AnalyticsPage() {
                                 </div>
                                 <div className="text-right">
                                   <p className="text-[#C3FF32] font-bold">
-                                    {(Number(prop.approximatedValue) / 1e18).toFixed(2)} MNT
+                                    {(Number(prop.approximatedValue) / 1e18).toFixed(2)} USD
                                   </p>
                                   <p className="text-xs text-gray-500 mt-1">Supply: {prop.totalSupply}</p>
                                 </div>
