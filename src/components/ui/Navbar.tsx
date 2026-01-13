@@ -28,7 +28,7 @@ export function Navbar({
   }, [])
 
   const links = [
-    { label: 'SDK', href: '#sdk' },
+    { label: 'SDK', href: 'https://mantle-rwa-launchpad.vercel.app/' },
     { label: 'Marketplace', href: '/marketplace' },
     { label: 'RWA Launch', href: '/rwa-launch' },
     { label: 'Analytics', href: '/dashboard/analytics' },
