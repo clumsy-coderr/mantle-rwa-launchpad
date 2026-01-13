@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Turbopack config (empty to silence warning - using webpack for now)
+  turbopack: {},
   // Configure webpack to exclude problematic files from wagmi
   webpack: (config, { isServer }) => {
     // Exclude problematic Wagmi test files and dev dependencies
