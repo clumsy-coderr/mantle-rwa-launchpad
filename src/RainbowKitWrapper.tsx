@@ -8,11 +8,9 @@ import type { ReactNode } from "react";
 const { connectors } = getDefaultWallets({
   appName: "RWA.FUN",
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "367e7033f1d106ae8bdbbd60e7c478a9",
-  chains: [mantleTestnet],
 });
 
 const config = createConfig({
-  autoConnect: true,
   chains: [mantleTestnet],
   connectors,
   transports: {
